@@ -1,0 +1,117 @@
+:root {
+	--background-color: #222831;
+	--text-color: #eeeeee;
+	--container-color: #393e46;
+	--accent-color: #00adb5;
+	--hover-color: #08cdd7;
+	--nav-max-height: 10vh;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none !important;
+	color: inherit;
+}
+
+a:hover {
+	color: var(--hover-color);
+}
+
+.nav {
+	background-color: var(--container-color);
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	max-height: var(--nav-max-height);
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top .logo {
+	flex: 1;
+	padding: 10px;
+	text-align: left;
+	font-size: 36px;
+	font-weight: bold;
+	color: var(--text-color);
+	display: flex;
+	align-items: center;
+}
+
+.top .date {
+	padding: 10px;
+	text-align: right;
+	font-size: 18px;
+	font-weight: bold;
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+}
+
+.bot {
+	background-color: var(--container-color);
+	color: var(--text-color);
+	overflow: hidden;
+	position: fixed;
+	padding: 10px;
+	width: 100%;
+	border-top: 1px solid var(--accent-color);
+	display: flex;
+	justify-content: space-between;
+}
+
+.bot .active {
+	color: var(--accent-color);
+}
+
+.bot nav {
+	width: 50%;
+	font-weight: 600;
+}
+.bot nav * {
+	margin: 10px;
+}
+
+.bot .weatherSystem {
+	margin-right: 5vw;
+}
+
+.body {
+	position: absolute;
+	top: calc(var(--nav-max-height) + 4vh);
+	padding: 1vw;
+}
+
+.body.landing {
+	color: green;
+}
+
+.body.dashboard {
+	color: red;
+}
+
+@media screen and (max-width: 768px) {
+	.top .logo {
+		font-size: 24px;
+	}
+
+	.top .date {
+		font-size: 12px;
+	}
+
+	.bot {
+		padding: 5px;
+	}
+}
