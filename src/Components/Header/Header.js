@@ -21,7 +21,7 @@ export function Header() {
 	return (
 		<div className="nav">
 			<div className="top">
-				<NavLink to="/">
+				<NavLink to="/weatherly-app/">
 					<span className="logo">
 						<AiTwotoneCloud />
 						<span>Weatherly</span>
@@ -34,8 +34,8 @@ export function Header() {
 			</div>
 			<div className="bot">
 				<nav>
-					<NavLink to="/"> Home </NavLink>
-					<NavLink to="/dashboard"> dashboard </NavLink>
+					<NavLink to="/weatherly-app/"> Home </NavLink>
+					<NavLink to="/weatherly-app/dashboard"> dashboard </NavLink>
 				</nav>
 				<Switch />
 			</div>

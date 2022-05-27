@@ -15,8 +15,9 @@ root.render(
 		<Provider store={store}>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/weatherly-app/" element={<LandingPage />} />
+
+					<Route path="/weatherly-app/dashboard" element={<Dashboard />} />
 				</Routes>
 			</BrowserRouter>
 		</Provider>
