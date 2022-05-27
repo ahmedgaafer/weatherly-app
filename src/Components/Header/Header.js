@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiTwotoneCloud } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -16,7 +16,7 @@ export function Header() {
 		return () => {
 			clearInterval(interval);
 		};
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className="nav">

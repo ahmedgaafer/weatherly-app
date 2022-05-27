@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "../../Components/Header/Header";
 import { useSelector } from "react-redux";
 import { selectImperial } from "../../Components/Switch/switchSlice";
 import { userIP } from "../../app/appSlice";

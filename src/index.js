@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Dashboard from "./Pages/DashboardPage/DashboardPage";
-import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -23,5 +22,3 @@ root.render(
 		</Provider>
 	</React.StrictMode>,
 );
-
-//reportWebVitals(console.log);
