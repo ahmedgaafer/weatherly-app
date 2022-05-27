@@ -13,11 +13,10 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<BrowserRouter>
+			<BrowserRouter basename="/weatherly-app">
 				<Routes>
-					<Route path="/weatherly-app/" element={<LandingPage />} />
-
-					<Route path="/weatherly-app/dashboard" element={<Dashboard />} />
+					<Route path="/" exact element={<LandingPage />} />
+					<Route path="/dashboard" element={<Dashboard />} />
 				</Routes>
 			</BrowserRouter>
 		</Provider>

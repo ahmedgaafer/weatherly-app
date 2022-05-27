@@ -1,7 +1,7 @@
 {
 	"name": "weatherly-app",
 	"version": "0.1.0",
-	"homepage": "https://{ahmedgaafer}.github.io/weatherly-app",
+	"homepage": "https://ahmedgaafer.github.io/weatherly-app/",
 	"private": true,
 	"dependencies": {
 		"@emotion/react": "^11.9.0",
@@ -21,7 +21,7 @@
 	},
 	"scripts": {
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
+		"deploy": "gh-pages -d build -r https://github.com/ahmedgaafer/weatherly-app",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
