@@ -20,7 +20,7 @@ jobs:
         npm install
         CI=false npm run-script build
       env:
-        WEATHER_API_KEY: ${{ secrets.REACT_APP_WEATHER_API_KEY }}
+        REACT_APP_WEATHER_API_KEY: ${{ secrets.REACT_APP_WEATHER_API_KEY }}
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
