@@ -18,7 +18,7 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          REACT_APP_WEATHER_API_KEY: ${{ secrets.REACT_APP_WEATHER_API_KEY }}
         run: |
-          echo "${{ secrets.REACT_APP_WEATHER_API_KEY }}"
+          echo "${{ env.REACT_APP_WEATHER_API_KEY }}"
           npm install
           npm run-script build
           
