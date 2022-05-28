@@ -15,6 +15,7 @@ jobs:
 
       - name: Build
         run: |
+          echo "${{ secrets.REACT_APP_WEATHER_API_KEY }}"
           npm install
           npm run-script build
         env:
