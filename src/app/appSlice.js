@@ -30,8 +30,8 @@ export const appSlice = createSlice({
 		setIp: (state, action) => {
 			state.userIP = action.payload;
 		},
-		changeLocation: (state, action) => {
-			state.userIP = action.payload;
+		setLocation: (state, action) => {
+			state.currentLocation = action.payload;
 		},
 	},
 	extraReducers: (builder) => {
@@ -58,7 +58,7 @@ export const appSlice = createSlice({
 	},
 });
 
-export const { setIp } = appSlice.actions;
+export const { setIp, setLocation } = appSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

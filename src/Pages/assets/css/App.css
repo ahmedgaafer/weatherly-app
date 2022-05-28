@@ -16,9 +16,6 @@ body {
 	height: 100%;
 }
 
-[contenteditable] {
-	outline: 0px solid transparent;
-}
 a {
 	text-decoration: none !important;
 	color: inherit;
@@ -114,11 +111,8 @@ a:hover {
 
 .body .locationInput {
 	font-size: 36px;
-}
-.body .locationInput span:nth-child(2) {
-	color: var(--accent-color);
-	border-bottom: 1px solid var(--accent-color);
-	padding-bottom: 1vh;
+	display: flex;
+	align-items: center;
 }
 
 @media screen and (max-width: 768px) {
