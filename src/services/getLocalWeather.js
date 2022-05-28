@@ -12,7 +12,12 @@ export async function getLocalWeather(q, options) {
 		process.env.NODE_ENV === "development"
 			? "http://api.worldweatheronline.com/premium/v1/weather.ashx"
 			: "https://api.worldweatheronline.com/premium/v1/weather.ashx";
+
 	const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+	console.log(
+		"🚀 ~ file: getLocalWeather.js ~ line 17 ~ getLocalWeather ~ process.env",
+		process.env,
+	);
 
 	const params = {
 		q, // location

@@ -10,9 +10,6 @@ import {
 import { debounce } from "lodash";
 
 const LocationInputComponent = styled(TextField)({
-	"& label.Mui-focused": {
-		color: "white",
-	},
 	"& .MuiInput-underline:after": {
 		borderBottomColor: "#00adb5",
 	},
@@ -20,7 +17,7 @@ const LocationInputComponent = styled(TextField)({
 		color: "#00adb5",
 		fontSize: "36px",
 		textAlign: "center",
-
+		placeholderTextColor: "red",
 		"& fieldset": {
 			borderBottomColor: "#00adb5",
 		},
@@ -41,27 +38,29 @@ const LocationInputComponent = styled(TextField)({
 });
 
 function LocationInput() {
-	const [locationName, setLocationName] = React.useState("");
+	const locationName = useSelector(currentLocation);
+
 	const dispatch = useDispatch();
 
 	const handleInputChange = (e) => {
-		setLocationName(e.target.value);
-		console.log(e.target.value);
-		//dispatch(setLocation(value));
-		// dispatch(
-		// 	getLocalWeatherData({
-		// 		q: value,
-		// 		options: {
-		// 			num_of_days: 5,
-		// 			includelocation: "yes",
-		// 			showmap: "yes",
-		// 			aqi: "yes",
-		// 		},
-		// 	}),
-		// );
+		const { value } = e.target;
+		if (value.length > 0) {
+			dispatch(setLocation(value));
+			dispatch(
+				getLocalWeatherData({
+					q: value,
+					options: {
+						num_of_days: 5,
+						includelocation: "yes",
+						showmap: "yes",
+						aqi: "yes",
+					},
+				}),
+			);
+		}
 	};
 
-	const debouncedChange = debounce(handleInputChange, 200);
+	const debouncedChange = useMemo(() => debounce(handleInputChange, 500), []);
 
 	return (
 		<div className="locationInput">
@@ -69,9 +68,9 @@ function LocationInput() {
 			<span>
 				<LocationInputComponent
 					id="standard-basic"
-					value={locationName}
 					onChange={debouncedChange}
 					spellCheck={false}
+					placeholder={locationName}
 					inputProps={{
 						style: {
 							textAlign: "center",
