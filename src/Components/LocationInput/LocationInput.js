@@ -59,7 +59,7 @@ function LocationInput() {
 			);
 		}
 	};
-
+	// eslint-disable-next-line
 	const debouncedChange = useMemo(() => debounce(handleInputChange, 500), []);
 
 	return (

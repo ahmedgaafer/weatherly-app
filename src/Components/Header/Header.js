@@ -33,7 +33,7 @@ export function Header() {
 					},
 				}),
 			);
-	}, [IP]);
+	}, [IP, dispatch]);
 
 	return (
 		<div className="nav">
