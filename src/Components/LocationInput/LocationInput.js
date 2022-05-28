@@ -53,7 +53,6 @@ function LocationInput() {
 						num_of_days: 5,
 						includelocation: "yes",
 						showmap: "yes",
-						aqi: "yes",
 					},
 				}),
 			);
@@ -70,7 +69,7 @@ function LocationInput() {
 					id="standard-basic"
 					onChange={debouncedChange}
 					spellCheck={false}
-					placeholder={locationName}
+					placeholder={locationName || "Finding your location..."}
 					inputProps={{
 						style: {
 							textAlign: "center",

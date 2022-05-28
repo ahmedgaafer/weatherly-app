@@ -51,9 +51,15 @@ export const appSlice = createSlice({
 			})
 			.addCase(getLocalWeatherData.fulfilled, (state, action) => {
 				state.weatherStatus = "idle";
-				const LOCATION = action.payload.nearest_area[0];
-				state.currentLocation = `${LOCATION.region[0].value},${LOCATION.country[0].value}`;
-				state.currentWeather = action.payload;
+				if (action?.payload?.nearest_area?.[0]) {
+					const LOCATION = action.payload.nearest_area[0];
+					state.currentLocation = `${LOCATION.region[0].value},${LOCATION.country[0].value}`;
+					state.currentWeather = action.payload;
+				} else {
+					state.currentLocation = false;
+					state.currentWeather = false;
+					state.weatherStatus = "error";
+				}
 			});
 	},
 });
@@ -66,4 +72,5 @@ export const { setIp, setLocation } = appSlice.actions;
 export const userIP = (state) => state.app.userIP;
 export const currentLocation = (state) => state.app.currentLocation;
 export const currentWeather = (state) => state.app.currentWeather;
+export const weatherStatus = (state) => state.app.weatherStatus;
 export default appSlice.reducer;

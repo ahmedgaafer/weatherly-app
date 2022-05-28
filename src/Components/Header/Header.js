@@ -29,7 +29,6 @@ export function Header() {
 						num_of_days: 5,
 						includelocation: "yes",
 						showmap: "yes",
-						aqi: "yes",
 					},
 				}),
 			);

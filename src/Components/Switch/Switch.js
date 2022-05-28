@@ -62,7 +62,7 @@ export default function SystemSwitch() {
 		>
 			<Typography>Metric</Typography>
 			<AntSwitch
-				defaultChecked={imperial}
+				value={imperial}
 				inputProps={{ "aria-label": "ant design" }}
 				onClick={() => dispatch(click())}
 			/>
