@@ -19,7 +19,7 @@ export function Datepicker({ debug }) {
 			dispatch(setDate(date));
 		}
 		setInternalDate(date);
-	}, []);
+	}, [dispatch, selectedDate]);
 
 	const handleDateChange = (e) => {
 		const dateValue = e.target.value;

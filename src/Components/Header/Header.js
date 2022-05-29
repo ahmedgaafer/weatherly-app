@@ -21,7 +21,6 @@ export function Header() {
 		}, 1000);
 
 		dispatch(getIP());
-		document.querySelector(`#${page}-nav`).classList.add("active");
 
 		return () => {
 			clearInterval(interval);
@@ -40,7 +39,8 @@ export function Header() {
 					},
 				}),
 			);
-	}, [IP, dispatch]);
+		document.querySelector(`#${page}-nav`).classList.add("active");
+	}, [IP, page, dispatch]);
 
 	const handleNavClick = (e) => {
 		const data = e.target.getAttribute("data");

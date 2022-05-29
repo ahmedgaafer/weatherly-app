@@ -57,7 +57,7 @@ export default function SystemSwitch() {
 
 	useEffect(() => {
 		setState(imperial);
-	});
+	}, [imperial]);
 	const handleChange = (event) => {
 		setState(event.target.checked);
 		console.log(event.target.checked);
