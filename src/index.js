@@ -2,10 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import LandingPage from "./Pages/LandingPage/LandingPage";
-import Dashboard from "./Pages/DashboardPage/DashboardPage";
+import AppPage from "./Pages/AppPage/AppPage";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -13,12 +11,7 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<BrowserRouter basename="/weatherly-app">
-				<Routes>
-					<Route path="/" exact element={<LandingPage />} />
-					<Route path="/dashboard" element={<Dashboard />} />
-				</Routes>
-			</BrowserRouter>
+			<AppPage />
 		</Provider>
 	</React.StrictMode>,
 );

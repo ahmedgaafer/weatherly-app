@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 
 import Switch from "@mui/material/Switch";
@@ -51,8 +51,19 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export default function SystemSwitch() {
+	const [state, setState] = useState(false);
 	const imperial = useSelector(selectImperial);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		setState(imperial);
+	});
+	const handleChange = (event) => {
+		setState(event.target.checked);
+		console.log(event.target.checked);
+		dispatch(click(event.target.checked));
+	};
+
 	return (
 		<Stack
 			direction="row"
@@ -62,9 +73,9 @@ export default function SystemSwitch() {
 		>
 			<Typography>Metric</Typography>
 			<AntSwitch
-				value={imperial}
+				value={state}
 				inputProps={{ "aria-label": "ant design" }}
-				onClick={() => dispatch(click())}
+				onClick={handleChange}
 			/>
 			<Typography>Imperial</Typography>
 		</Stack>

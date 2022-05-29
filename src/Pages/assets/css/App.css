@@ -21,13 +21,36 @@ fieldset {
 	border-left: none !important;
 }
 
-a {
+.a {
 	text-decoration: none !important;
 	color: inherit;
 }
 
-a:hover {
+.a:hover {
 	color: var(--hover-color);
+	cursor: pointer;
+}
+
+input[type="date"] {
+	background-color: var(--accent-color);
+	padding: 15px;
+
+	color: var(--text-color);
+	font-family: inherit;
+	font-size: 1.5rem;
+	border-radius: 5px;
+	transition: all 0.2s ease-in-out;
+	pointer-events: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	background-color: var(--text-color);
+	pointer-events: auto;
+}
+
+input[type="date"]:hover {
+	transform: scale(1.1);
+	background-color: var(--hover-color);
 }
 
 .nav {
@@ -134,7 +157,7 @@ a:hover {
 	min-width: 90vw;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 
@@ -200,7 +223,6 @@ a:hover {
 .futureCast {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
 }
 
 @media screen and (max-width: 768px) {
