@@ -30,6 +30,6 @@ export async function getLocalWeather(q, options) {
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			return data.data;
+			return { ...data.data, dashboard: options.dashboard };
 		});
 }

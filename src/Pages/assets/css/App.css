@@ -135,7 +135,7 @@ input[type="date"]:hover {
 }
 
 .body.dashboard {
-	color: red;
+	color: var(--hover-color);
 }
 
 .body .locationInput {
@@ -225,6 +225,16 @@ input[type="date"]:hover {
 	flex-direction: row;
 }
 
+.axis path {
+	stroke: white;
+}
+.axis line {
+	stroke: white;
+}
+text {
+	font-size: 18px;
+	fill: white;
+}
 @media screen and (max-width: 768px) {
 	.top .logo {
 		font-size: 24px;

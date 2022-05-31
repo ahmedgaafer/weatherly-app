@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	getIP,
 	getLocalWeatherData,
-	userIP,
 	setCurrentPage,
 	currentPage,
+	selectQuery,
 } from "../../app/appSlice";
 
 import Switch from "../Switch/Switch";
 export function Header() {
 	const [date, setDate] = useState(new Date());
 	const dispatch = useDispatch();
-	const IP = useSelector(userIP);
+	const query = useSelector(selectQuery);
 	const page = useSelector(currentPage);
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -28,10 +28,10 @@ export function Header() {
 	}, [dispatch]);
 
 	useEffect(() => {
-		IP &&
+		query &&
 			dispatch(
 				getLocalWeatherData({
-					q: IP,
+					q: query,
 					options: {
 						num_of_days: 5,
 						includelocation: "yes",
@@ -40,7 +40,7 @@ export function Header() {
 				}),
 			);
 		document.querySelector(`#${page}-nav`).classList.add("active");
-	}, [IP, page, dispatch]);
+	}, [query, page, dispatch]);
 
 	const handleNavClick = (e) => {
 		const data = e.target.getAttribute("data");

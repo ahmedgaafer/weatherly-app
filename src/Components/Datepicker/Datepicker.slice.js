@@ -10,7 +10,6 @@ export const DatepickerSlice = createSlice({
 	// The `reducers` field lets us define reducers and generate associated actions
 	reducers: {
 		setDate: (state, action) => {
-			console.log(action.payload);
 			state.pickedDate = action.payload;
 		},
 	},

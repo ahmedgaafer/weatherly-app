@@ -8,6 +8,7 @@ const initialState = {
 	currentWeather: false,
 	weatherStatus: "idle",
 	currentPage: "home",
+	dashboardWeather: false,
 };
 
 export const getIP = createAsyncThunk("app/getUserIP", async () => {
@@ -54,14 +55,18 @@ export const appSlice = createSlice({
 			})
 			.addCase(getLocalWeatherData.fulfilled, (state, action) => {
 				state.weatherStatus = "idle";
-				if (action?.payload?.nearest_area?.[0]) {
-					const LOCATION = action.payload.nearest_area[0];
-					state.currentLocation = `${LOCATION.region[0].value},${LOCATION.country[0].value}`;
-					state.currentWeather = action.payload;
+				if (!action.payload.dashboard) {
+					if (action?.payload?.nearest_area?.[0]) {
+						const LOCATION = action.payload.nearest_area[0];
+						state.currentLocation = `${LOCATION.region[0].value},${LOCATION.country[0].value}`;
+						state.currentWeather = action.payload;
+					} else {
+						state.currentLocation = false;
+						state.currentWeather = false;
+						state.weatherStatus = "error";
+					}
 				} else {
-					state.currentLocation = false;
-					state.currentWeather = false;
-					state.weatherStatus = "error";
+					state.dashboardWeather = action.payload;
 				}
 			});
 	},
@@ -74,7 +79,10 @@ export const { setIp, setLocation, setCurrentPage } = appSlice.actions;
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const userIP = (state) => state.app.userIP;
 export const currentLocation = (state) => state.app.currentLocation;
+export const selectQuery = (state) =>
+	state.app.currentLocation || state.app.userIP;
 export const currentWeather = (state) => state.app.currentWeather;
+export const dashboardWeather = (state) => state.app.dashboardWeather;
 export const weatherStatus = (state) => state.app.weatherStatus;
 export const currentPage = (state) => state.app.currentPage;
 
