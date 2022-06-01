@@ -24,13 +24,29 @@ function HeatGraph() {
 		(hourlyData, options) => {
 			const timeMap = {
 				0: 0,
+				100: 1,
+				200: 2,
 				300: 3,
+				400: 4,
+				500: 5,
 				600: 6,
+				700: 7,
+				800: 8,
 				900: 9,
+				1000: 10,
+				1100: 11,
 				1200: 12,
+				1300: 13,
+				1400: 14,
 				1500: 15,
+				1600: 16,
+				1700: 17,
 				1800: 18,
+				1900: 19,
+				2000: 20,
 				2100: 21,
+				2200: 22,
+				2300: 23,
 			};
 
 			let dataObject = hourlyData.map((hour) => {
@@ -61,7 +77,6 @@ function HeatGraph() {
 				.attr("id", "svg-heat-graph")
 				.style("background-color", "#393E46")
 				.style("border-radius", "10px")
-				.style("margin-top", "20px")
 				.style("padding", "10px");
 
 			svg.selectAll("*").remove();
@@ -183,7 +198,6 @@ function HeatGraph() {
 		window.addEventListener("resize", handleResize);
 
 		if (weatherData && !weatherData.error) {
-			console.log(weatherData);
 			createGradientHeatGraph(weatherData?.weather[0]?.hourly, {
 				width: Math.max(
 					document.documentElement.clientWidth || 0,
@@ -195,7 +209,6 @@ function HeatGraph() {
 						window.innerHeight || 0,
 					) * 0.2,
 			});
-			console.log("data");
 		} else {
 			console.log(weatherData);
 			weatherData &&
@@ -206,9 +219,11 @@ function HeatGraph() {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, [weatherData, imperial, createGradientHeatGraph, client]);
+
 	return (
 		<>
 			<div id="headGradient">
+				<h3>Hourly Heat Graph</h3>
 				<svg ref={svgRef} />
 			</div>
 		</>

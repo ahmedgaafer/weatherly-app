@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getUserIP } from "../services/getUserIp";
 import { getLocalWeather } from "../services/getLocalWeather";
+import { getHistoricalWeather } from "../services/getHistoricalWeather";
 const initialState = {
 	userIP: false,
 	ipStatus: "idle",
@@ -23,10 +24,18 @@ export const getLocalWeatherData = createAsyncThunk(
 	},
 );
 
+export const getHistoricalData = createAsyncThunk(
+	"app/getHistoricalData",
+	async (settings) => {
+		const { q, options } = settings;
+		return await getHistoricalWeather(q, options);
+	},
+);
+
 export const appSlice = createSlice({
 	name: "app",
 	initialState,
-	// The `reducers` field lets us define reducers and generate associated actions
+
 	reducers: {
 		setIp: (state, action) => {
 			state.userIP = action.payload;
@@ -49,7 +58,7 @@ export const appSlice = createSlice({
 
 				state.userIP = action.payload;
 			})
-			// Get Weather
+			// Get Weather Local
 			.addCase(getLocalWeatherData.pending, (state) => {
 				state.weatherStatus = "loading";
 			})
@@ -68,15 +77,22 @@ export const appSlice = createSlice({
 				} else {
 					state.dashboardWeather = action.payload;
 				}
+			})
+			//Get Weather Historical
+			.addCase(getHistoricalData.pending, (state) => {
+				state.weatherStatus = "loading";
+			})
+			.addCase(getHistoricalData.fulfilled, (state, action) => {
+				state.weatherStatus = "idle";
+				if (action?.payload?.nearest_area?.[0]) {
+					state.dashboardWeather = action.payload;
+				}
 			});
 	},
 });
 
 export const { setIp, setLocation, setCurrentPage } = appSlice.actions;
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const userIP = (state) => state.app.userIP;
 export const currentLocation = (state) => state.app.currentLocation;
 export const selectQuery = (state) =>
