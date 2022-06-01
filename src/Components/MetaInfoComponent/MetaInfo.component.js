@@ -94,7 +94,7 @@ function MetaInfoComponent(props) {
 		};
 
 		setTimeout(animate, timeOut);
-	}, [timeOut]);
+	}, [timeOut, info, sign]);
 
 	const createGradient = (svg, id, color1, color2) => {
 		const defs = svg.append("svg:defs");
