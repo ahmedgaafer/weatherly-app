@@ -18,7 +18,7 @@ function Dashboard() {
 	const query = useSelector(selectQuery);
 	const WeatherStatus = useSelector(weatherStatus);
 	const dashboardWeatherData = useSelector(dashboardWeather);
-	const midDayWeather = dashboardWeatherData?.weather[0]?.hourly?.[12];
+	const midDayWeather = dashboardWeatherData?.weather?.[0]?.hourly?.[12];
 
 	useEffect(() => {
 		const now = new Date();
