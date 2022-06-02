@@ -2,6 +2,7 @@ import React from "react";
 import LinearProgress from "@mui/material/LinearProgress";
 import { SiWindicss } from "react-icons/si";
 import { WiHumidity, WiRainWind } from "react-icons/wi";
+
 function Forecast({ main, isWeatherLoading, Weather, isImperial, today }) {
 	const degreeKey = isImperial ? "F" : "C";
 	const speedKey = isImperial ? "Miles" : "Kmph";
@@ -24,7 +25,9 @@ function Forecast({ main, isWeatherLoading, Weather, isImperial, today }) {
 	return (
 		<div className={`forecast `}>
 			{isWeatherLoading ? (
-				<LinearProgress color="inherit" />
+				<div className={`${main ? "big" : "small"}`}>
+					<LinearProgress color="inherit" />
+				</div>
 			) : (
 				<div className={`${main ? "big" : "small"}`}>
 					<div className="imgContainer">

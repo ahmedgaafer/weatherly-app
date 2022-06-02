@@ -1,28 +1,38 @@
 .widget {
 	width: 150px;
-	margin-top: 10px;
+	margin: 10px;
+
 	background-color: #393e46;
 	border-radius: 5px;
 	box-shadow: 0px 0px 1px 0px #06060d;
+	flex: 1 0 20%;
 }
 
 .header {
 	background-color: #00adb5;
-	height: 40px;
+	min-height: 40px;
 	color: white;
 	text-align: center;
 	line-height: 40px;
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
 	font-weight: 400;
-	font-size: 1em;
+	font-size: 1.3em;
 	text-shadow: 1px 1px #06060d;
 }
 
 .chart-container {
 	padding: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .shadow {
 	-webkit-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
 	filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
+}
+
+.nonPercentage {
+	text-align: center;
+	font-size: 1.5em;
 }

@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import "./style.css";
 
 function MetaInfoComponent(props) {
-	const { title, timeOut, info, sign } = props;
+	const { title, timeOut, info, sign, isPercentage } = props;
 
 	const svgRef = useRef();
 	useEffect(() => {
@@ -125,7 +125,11 @@ function MetaInfoComponent(props) {
 		<div className="widget">
 			<div className="header">{title}</div>
 			<div className="chart-container">
-				<svg ref={svgRef}></svg>
+				{isPercentage ? (
+					<svg ref={svgRef}></svg>
+				) : (
+					<div className="nonPercentage">{`${info} ${sign}`}</div>
+				)}
 			</div>
 		</div>
 	);

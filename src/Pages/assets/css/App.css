@@ -102,6 +102,21 @@ input[type="date"]:hover {
 	justify-content: space-between;
 }
 
+::-webkit-scrollbar-track {
+	border-left: 1px solid var(--accent-color);
+	background-color: var(--container-color);
+	position: absolute;
+	top: 10vh;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--hover-color);
+}
+
 .bot .active {
 	color: var(--accent-color);
 }
@@ -128,13 +143,15 @@ input[type="date"]:hover {
 
 .body.landing {
 	display: flex;
-
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	color: var(--hover-color);
 }
 
 .body.dashboard {
+	width: 95%;
+	height: 100%;
 	color: var(--hover-color);
 }
 
@@ -216,13 +233,27 @@ input[type="date"]:hover {
 	justify-content: space-between;
 	align-items: center;
 }
+
+.forecast .MuiLinearProgress-root {
+	min-width: 95%;
+	justify-self: center;
+	align-self: center;
+}
+
+.body.dashboard .MuiLinearProgress-root {
+	top: 20vh;
+	width: 90%;
+	margin: 0 auto;
+}
 .forecast .small img {
 	min-width: 10vw;
 }
 
 .futureCast {
+	width: 100%;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
 }
 
 .axis path {
@@ -241,7 +272,7 @@ text {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	align-items: center;
+	align-items: stretch;
 	flex-wrap: wrap;
 }
 
@@ -274,5 +305,17 @@ text {
 
 	#standard-basic {
 		font-size: 24px;
+	}
+
+	::-webkit-scrollbar-track {
+		display: none;
+	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	::-webkit-scrollbar-thumb {
+		display: none;
 	}
 }

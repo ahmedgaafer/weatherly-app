@@ -27,7 +27,7 @@ function Landing() {
 		<div className="body landing">
 			<LocationInput />
 			{isWeatherLoading === "error" ? (
-				<div>Error</div>
+				<div>No city with this name</div>
 			) : (
 				<>
 					<Forecast
