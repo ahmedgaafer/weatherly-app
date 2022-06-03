@@ -1,10 +1,15 @@
 # weatherly-app
 
 - [weatherly-app](#weatherly-app)
+  - [CI/ CD:](#ci-cd)
   - [how to run the project:](#how-to-run-the-project)
   - [how to run the tests:](#how-to-run-the-tests)
 
 ---
+
+## CI/ CD:
+
+I wrote my own CI/CD [HERE](.github/workflows/main.yml) using github actions that builds, tests and deploys the app to github pages
 
 ## how to run the project:
 

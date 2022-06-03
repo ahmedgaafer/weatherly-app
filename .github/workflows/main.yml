@@ -19,10 +19,10 @@ jobs:
           REACT_APP_WEATHER_API_KEY: ${{ secrets.REACT_APP_WEATHER_API_KEY }}
 
         run: |
-          echo "${{ env.REACT_APP_WEATHER_API_KEY }}"
           npm install
           npm run-script build
-
+      - name: Test
+          npm test
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
