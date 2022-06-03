@@ -22,6 +22,7 @@ jobs:
           npm install
           npm run-script build
       - name: Test
+        run: |
           npm test
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
