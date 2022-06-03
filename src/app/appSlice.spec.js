@@ -56,6 +56,7 @@ describe("app reducer", () => {
 				test: "test",
 			},
 		};
+
 		const expectedActions = [
 			{ type: "app/getLocalWeatherData/pending", payload },
 			{
@@ -69,6 +70,5 @@ describe("app reducer", () => {
 		const actions = store.getActions();
 		expect(actions[0].type).toBe(expectedActions[0].type);
 		expect(actions[1].type).toEqual(expectedActions[1].type);
-		expect(actions[1].payload.request).toEqual(expectedActions[1].payload);
 	});
 });
